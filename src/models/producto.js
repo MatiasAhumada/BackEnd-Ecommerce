@@ -13,7 +13,7 @@ const productoSchema = new Schema({
     type: Number,
     required: true,
     minLength: 1,
-    maxLength: 10000,
+    maxLength: 1000000,
   },
   detalle: {
     type: String,
