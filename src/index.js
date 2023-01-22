@@ -1,17 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import express, { Router } from "express";
+import morgan from "morgan";
+import cors from 'cors'
+import path from "path";
+// import './database'
+// import router from "./routes/producto.routes";
+// import routerUsuario from "./routes/usuarios.routes";
+// import pedidosRouter from './routes/pedidos.routes'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const app = express()
+app.set('port', process.env.PORT || 4000)
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+app.listen(app.get('port'), ()=>{
+  console.log('Puert'+ app.get('port'))
+})
+
+app.use(morgan('dev'))
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+app.use(express.static(path.join(__dirname,'../public')))
+// app.use('/tecnoMas', router)
+// app.use('/tecnoMas/user', routerUsuario)
+// app.use('/tecnoMas', routerPedidos)
+
+
+
+
+
+
+
