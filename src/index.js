@@ -1,11 +1,11 @@
-import express, { Router } from "express";
+import express from "express";
 import morgan from "morgan";
 import cors from 'cors'
 import path from "path";
 import './database'
 import router from "./routes/productos.routes";
 import routerUsuario from "./routes/usuarios.routes";
-// import routerPedidos from './routes/pedidos.routes'
+import routerPedidos from './routes/pedidos.routes'
 
 const app = express()
 app.set('port', process.env.PORT || 4000)
@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname,'../public')))
 app.use('/tecnoMas', router)
 app.use('/tecnoMas/user', routerUsuario)
-// app.use('/tecnoMas', routerPedidos)
+app.use('/tecnoMas/pedido', routerPedidos)
 
 
 
