@@ -22,6 +22,10 @@ const pedidoSchema = new Schema({
     type: String,
     required: true,
   },
+  metodo: {
+    type: String,
+    required: true,
+  },
 });
 
 const Pedido = mongoose.model("pedido", pedidoSchema);
