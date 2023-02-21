@@ -25,10 +25,10 @@ router.route("/productos")
       .isNumeric()
       .withMessage("El precio debe ser un número")
       .custom((valor)=>{
-        if(valor >=1 && valor <= 10000){
+        if(valor >=1 && valor <= 1000000){
           return true
         }else{
-          throw new Error("El precio debe estar entre 1 y 10000")
+          throw new Error("El precio debe estar entre 1 y 1000000")
         }
       }),
       

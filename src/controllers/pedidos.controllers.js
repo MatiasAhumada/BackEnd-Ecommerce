@@ -96,7 +96,7 @@ export const listarPedidosPendientes = async (req, res) => {
 // pedidos procensando
 export const listarPedidosProcesando = async (req, res) => {
   try {
-    const pedidosPendientes = await Pedido.find({ estado: "En proceso" });
+    const pedidosPendientes = await Pedido.find({ estado: "En preparacion" });
     res.status(200).json(pedidosPendientes);
   } catch (error) {
     console.log(error);

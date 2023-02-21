@@ -50,6 +50,7 @@ router
           "Pendiente",
           "En preparacion",
           "Listo para retirar",
+          "Retirado",
           "Cancelado",
         ])
         .withMessage("La categoria debe ser correcta"),
@@ -82,7 +83,10 @@ router
         check("metodo")
         .notEmpty()
         .withMessage("El mnetodo es un dato obligatorio")
-        .isLength({ min: 3 })
+        .isIn([
+          'Transferencia',
+          'Efectivo'
+        ])
         .withMessage("El metodo debe contener por lo menos 3 caracteres"),
       check("estado")
         .notEmpty()
@@ -90,6 +94,8 @@ router
         .isIn([
           "Pendiente",
           "En preparacion",
+          "Listo para retirar",
+          "Retirado",
           "Cancelado",
         ])
         .withMessage("La categoria debe ser correcta"),
